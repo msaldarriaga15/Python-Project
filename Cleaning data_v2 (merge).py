@@ -25,13 +25,13 @@ print(df_merged.head())
 print(df_merged.tail())
 
 # Print the shape of df
-print(df.shape)
+print(df_merged.shape)
 
 # Print the columns of df
-print(df.columns)
+print(df_merged.columns)
 
 # Print the info of df
-print(df.info())
+print(df_merged.info())
 
 ## Rename the columns
 
@@ -49,14 +49,14 @@ new_names = {'Unamed: 0': 'Obs',
              'full_text': 'Job_description',
              'location_full_text': 'Location2'}
 
-df.rename(columns=new_names, inplace=True)
+df_merged.rename(columns=new_names, inplace=True)
 
 # Check
-df.head()
-print(df.columns)
+df_merged.head()
+print(df_merged.columns)
 
 ## Looking for missing values
-print((df[['City','Search','Job_title',
+print((df_merged[['City','Search','Job_title',
            'Company_name','Location',
            'Rating','Website',
            'Days_posted',
@@ -66,36 +66,36 @@ print((df[['City','Search','Job_title',
 # Mark 'NOT_FOUND' as missing value or NaN
 import numpy as np
 
-df[['Location', 'Rating']] = df[['Location', 'Rating']].replace({'NOT_FOUND': np.NaN})
+df_merged[['Location', 'Rating']] = df_merged[['Location', 'Rating']].replace({'NOT_FOUND': np.NaN})
 
 # Count the number of NaN values in each column
-print(df.isnull().sum())
+print(df_merged.isnull().sum())
 
 # 'Location' has many missing values: drop 'Location'
-df1 = df.drop(['Location'], axis=1)
+df_merged1= df_merged.drop(['Location'], axis=1)
 
 # Organize the shape of the data
-print(df1.index)
+print(df_merged1.index)
 
 '''
 Our index is well specified, and it's the column observation.
 '''
 
 ## Data types of our database
-print(df1.dtypes)
+print(df_merged1.dtypes)
 
 # Import the regular expression module
 import re
 
 # Find the numeric values: 'Days posted' and convert into float
-df1['Days_posted_2'] = df1['Days_posted'].str.extract('(\d+)')
-df1['Days_posted_2'] = pd.to_numeric(df1['Days_posted_2'], downcast='integer', errors='coerce')
+df_merged1['Days_posted_2'] = df_merged1['Days_posted'].str.extract('(\d+)')
+df_merged1['Days_posted_2'] = pd.to_numeric(df_merged1['Days_posted_2'], downcast='integer', errors='coerce')
 
 # Find the numeric values: 'Rating' and convert into float
-df1['Rating'] = df1['Rating'].str.extract('(\d+)')
-df1['Rating'] = pd.to_numeric(df1['Rating'], downcast='integer', errors='coerce')
+df_merged1['Rating'] = df_merged1['Rating'].str.extract('(\d+)')
+df_merged1['Rating'] = pd.to_numeric(df_merged1['Rating'], downcast='integer', errors='coerce')
 
-print(df1.info())
+print(df_merged1.info())
 
 
 '''
@@ -103,14 +103,13 @@ The number of missing values in the column decreased.
 '''
 
 # Summary statistics of 'Days_posted_2' and ' Rating'
-df1.describe()
+df_merged1.describe()
 
 # Visualizing 'Days_posted_2' with histograms
 import matplotlib.pyplot as plt
 
-df1['Days_posted_2'].plot(
-    kind='hist',
-    xTitle='Days',
+df_merged1['Days_posted_2'].plot(kind='hist',
+    xtitle='Days',
     linecolor='black',
     yTitle='count',
     title='Days posted Distribution') 
@@ -118,7 +117,7 @@ df1['Days_posted_2'].plot(
 # Visualizing 'Rating' with histograms
 import matplotlib.pyplot as plt
 
-df1['Rating'].plot(
+df_merged1['Rating'].plt(
     kind='hist',
     xTitle='rating',
     linecolor='black',
@@ -128,11 +127,11 @@ df1['Rating'].plot(
 ## Separate 'Location2' 
 
 # New data frame with split value columns 
-new = df1['Location2'].str.split(" ", n = 1, expand = True) 
+new = df_merged1['Location2'].str.split(" ", n = 1, expand = True) 
   
 # Making separate first name column from new data frame 
-df1['Postal_code_Berlin']= new[0] 
-df1['Postal_code_Berlin'] = pd.to_numeric(df1['Postal_code_Berlin'], downcast='integer', errors='coerce')
+df_merged1['Postal_code_Berlin']= new[0] 
+df_merged1['Postal_code_Berlin'] = pd.to_numeric(df_merged1['Postal_code_Berlin'], downcast='integer', errors='coerce')
 
 '''
 Here we want an integer not a float
@@ -141,12 +140,12 @@ Here we want an integer not a float
 ## Frequency counts
 
 # Job_title
-df1.Job_title.value_counts(dropna=False)
+df_merged1.Job_title.value_counts(dropna=False)
 
 # Company_name
-df1.Company_name.value_counts(dropna=False)
+df_merged1.Company_name.value_counts(dropna=False)
 
 ## Output 'clean_v1' data to a CSV file
 # To avoid character issues, use utf8 encoding for input/output.
 
-df1.to_csv("df_cleanv1.csv", index=True, encoding='utf8')
+df_merged1.to_csv("df_cleanv2(merge).csv", index=True, encoding='utf8')
