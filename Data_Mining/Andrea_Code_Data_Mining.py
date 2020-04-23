@@ -80,7 +80,6 @@ def python(series):
     else:
         return 1
 
-
 df['python'] = df['python'].apply(python)
 df['python'].value_counts()
 
@@ -255,7 +254,35 @@ def php(series):
 df['php'] = df['php'].apply(php)
 df['php'].value_counts()
 
-#Export dataset as CSV
-df.to_csv(r'C:\Users\K501UX\Desktop\Hertie School\Fourth Semester\Python\Python Project\data_indicator_variables.csv', index = False)
+# Transforming the categorical variables / 10 Skills columns into a list - this is a preprocessing necessary for the demo
+
+# First, turning 0,1 to names with a dictionary
+cleanup_nums = {"python":{1: "python", 0: None},
+                " r": {1: " r", 0: None}, "java": {1: "java", 0: None},
+                "sas": {1: "sas", 0: None}, "sql": {1: "sql", 0: None}, "stata": {1: "stata", 0: None}, 
+                "spss": {1: "spss", 0: None}, "ruby": {1: "ruby", 0: None}, "javascript": {1: "javascript", 0: None},
+                "php": {1: "php", 0: None}}
+df.replace(cleanup_nums, inplace=True)
 
 
+# Concatenate the columns into a new column named skills_as_list
+# df_combined = ",".join()df['Python'].map(str) + ',' + df['Ruby'].map(str)
+cols_list = ['python', " r", "java", "sas", "sql", "stata", "spss", "ruby", "javascript", "php"]
+df['skills_as_list'] = df.apply(lambda x: ','.join([str(x[col_name]) for col_name in cols_list]),
+                                axis=1)
+
+#Remove job_ads where no skill was found. There were 4 lines like this. And this is also important for the demo to work.
+def remove_nones_return_list(a):
+    """This function removes the job ads in the dataframe that do not contain any of the skills that we identified
+
+    """
+    c = set(a.split(','))
+    try:
+        c.remove('None')
+    except:
+        pass
+    return ','.join(list(c))
+df['skill_clean'] = df['skills_as_list'].apply(remove_nones_return_list)
+
+#Export df to be used by streamlit
+df.to_csv(r'C:\Users\K501UX\Desktop\Hertie School\Fourth Semester\Python\Python Project\final_dataset.csv', index=False)
