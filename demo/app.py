@@ -53,9 +53,6 @@ filtered_df = filtered_df[~filtered_df['skill_clean'].isna()]
 #Filtering jobs by skills and lists
 filtered_df['fullfilment_index']= filtered_df["skill_clean"].apply(calculate_skill_index)
 filtered_df = filtered_df[filtered_df["Days_posted_2"] <= days_to_filter]
-
-#filtered_df.sort_values(by='fullfilment_index', ascending=False, inplace=True)
-#filtered_df.sort_values(by=['Days_posted_2'], ascending=[True], inplace=True)
 filtered_df.sort_values(by=['fullfilment_index','Days_posted_2'], ascending=[False,True], inplace=True)
 
 
