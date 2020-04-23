@@ -3,12 +3,14 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
 
 ### 1st task ### >> Create an user interface with a dropdown menu for collecting user's interface
 
 #Load the excel file and read it as a table. We used a mockdataset with only 100 entries at this point.
 def load_data():
-    df = pd.read_csv('final_dataset.csv',sep=',') 
+    csv_filepath = os.path.abspath(__file__ + "/../../data/final_dataset.csv")
+    df = pd.read_csv(csv_filepath,sep=',') 
     return df
 
 df = load_data()
