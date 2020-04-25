@@ -13,8 +13,13 @@ Mari write here... and copy his functions..
 
 ## 3.Data Mining
 
-Andrea write here.. I already did an example..
-These are the main functions used at this step...
+#### 3.1. How to run this script
+
+You can find the code [here](Data_Mining/Andrea_Code_Data_Mining.py)
+
+#### 3.2. What the script does
+
+Andrea write here what he thinks it is important to someone to understand the code
 
 ```python
 def detect_lang(x):
@@ -47,7 +52,7 @@ def remove_nones_return_list(a):
 
 ## 5. Demo
 
-### 5.1 How to get started with Streamlit
+#### 5.1 How to get started with Streamlit
 
 #### Requisites before using Streamlit 
 
@@ -87,10 +92,10 @@ It should produce an output as shown in the image below:
 - If you want also to check or adjust the code and see the changes live,  you can easily modify the code in your IDE, save it, and refresh the browser, as I did today in our video call. 
 - For that I used Visual Studio Code as IDE, since apparently Streamlit cannot be executed inside Colab .
 
-### 5.2 How to deploy Streamlit
+#### 5.2 How to deploy Streamlit
 
 ALINE WRITE HERE....
 
-### 5.3 Code documentation
+#### 5.3 Code documentation
 
 ALINE WRITE HERE....
