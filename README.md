@@ -148,11 +148,11 @@ def remove_nones_return_list(a):
     return ','.join(list(c))    
 ```
 
-## 4. Construction of the Demo
+## 4. Demo
 
 The demo is the fourth and last part of our project. Its main function is to collect the user's inputs regarding his/her programming language skills and then recommend a list of jobs, which better matches these skills. Besides the input related to programming skills, the service also collects user's preferences regarding the language of the job ad (german or english) as well as for how long the job ad has been posted.
 
-The demo was created using streamlit, which is an open-source Python library that makes it much easier to build customized interfaces. However, to be able to run the code and see our demo, it is important to comply with some requirements.
+The demo was created using [streamlit](https://www.streamlit.io/), which is an open-source Python library that makes it much easier to build customized interfaces. However, to be able to run the code and see our demo, it is important to comply with some requirements.
 
 #### 4.1 How to get started with Streamlit
 
@@ -177,16 +177,24 @@ After this step you should have the file app.py inside the folder job_ads.
 
 2. Navigate to the job_ads folder using the command line. My example below:
 
+```cmd
 cd C:\Users\aline\OneDrive\Desktop\Hertie\Hertie School 4th Sem\Phyton\Final Project\job-ads
+```
 
-3. Run Streamlit on the command line: streamlit run app.py 
+3. Run Streamlit on the command line: 
+
+```cmd
+streamlit run app.py 
+```
+
 It should produce an output as shown below:
-
+```cmd
 " You can now view your Streamlit app in your browser.
 
   Local URL: http://localhost:8501
   Network URL: http://192.168.0.147:8501"
-  
+```
+
 4. Open the browser on the displayed URL in the command line and see the dashboard. 
 
 #### Understanding how the code works and seeing the changes live in the demo
@@ -196,15 +204,15 @@ For that I used Visual Studio Code as IDE, since apparently Streamlit cannot be 
 
 #### 4.2 How to deploy Streamlit
 
-To deploy our demo we followed strictily this [link](https://gilberttanner.com/blog/deploying-your-streamlit-dashboard-with-heroku), which explain how to deploy one Streamlit dashboard with Heroku.
+To deploy our demo we followed strictily this [link](https://gilberttanner.com/blog/deploying-your-streamlit-dashboard-with-heroku), which explain how to deploy one Streamlit dashboard with Heroku ([link](https://job-ads-demo.herokuapp.com/) to Streamlit app).
 
 #### 4.3 What the script does?
 
 You can find the code [here](https://github.com/Andrea-Giuliani/Python-Project/blob/master/demo/app.py) 
 
 This module was divided into three main parts.
-- 1st: To create the interface which collects the inputs from the user, using streamlit library 
-- 2nd: To filter ans sort the dataset according to 3 user's inputs - programming language skills, language and date posted.
+- 1st: To create the interface which collects the inputs from the user, using the Streamlit library 
+- 2nd: To filter and sort the dataset according to 3 user's inputs - programming language skills, language and date posted.
 - 3rd: To display the list with the recommended jobs
 
 The most of the code was based on the official streamlit tutorial, what can be found on this [link](https://docs.streamlit.io/tutorial/create_a_data_explorer_app.html#filter-results-with-a-slider) and it is already well documented.
