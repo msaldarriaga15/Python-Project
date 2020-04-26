@@ -39,7 +39,7 @@ Behinderte Menschen werden bei gleicher Eignung bevorzugt. Da wir uns Chancengle
 """
 
 #Import dataset 
-df = pd.read_csv('https://raw.githubusercontent.com/Andrea-Giuliani/Python-Project/master/data/data_cleanv.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/Andrea-Giuliani/Python-Project/master/data/data_clean.csv')
 
 #Create New Column
 def detect_lang(x):
