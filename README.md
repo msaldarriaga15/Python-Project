@@ -11,7 +11,7 @@ You can find the code [here](https://github.com/Andrea-Giuliani/Python-Project/b
 
 #### 1.2. What the script does?
 
-This module scrapes data science and data analyst job ads in the city of Berlin from https://de.indeed.com/. The full script parses the information into different fields, including company name, company rating, job description, data of posting, and link to the full description. Finally, after information is scraped and parsed, two csv files are generated for the two respective job queries. Below are shown the main functions: 
+This module scrapes data science and data analyst job ads in the city of Berlin from https://de.indeed.com/. The script scrapes and parses the information into different fields, including company name, company rating, job title, job description, date of posting, and link to the full description. Finally, after information is scraped and parsed, two csv files are generated for the two respective job queries. Below are shown the main functions: 
 
 ```python
 def extract_company(div): 
