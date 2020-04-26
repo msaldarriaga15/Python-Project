@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import spacy
 from spacy_langdetect import LanguageDetector
 import pandas as pd
