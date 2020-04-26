@@ -94,7 +94,7 @@ It should produce an output as shown in the image below:
 
 #### 5.2 How to deploy Streamlit
 
-ALINE WRITE HERE....
+To deploy our demo we followed strictily this [link](https://gilberttanner.com/blog/deploying-your-streamlit-dashboard-with-heroku), which explain how to deploy one Streamlit dashboard with Heroku.
 
 #### 5.3 Code documentation
 
