@@ -1,5 +1,6 @@
 """
 This section of the code is exclusive for programming our demo, as the third and last part of our project.
+
 The overall function of the demo is to collect the input of the user regarding his/her programming language skills and 
 then recommend a list of jobs, which better match these skills Besides the input related to skills, the demo
 also uses the langauge of the job ad (german or english) as well as how long the job ad has been posted 
@@ -8,15 +9,13 @@ to filter and sort this job list.
 The demo was created using streamlit, which is an open-source Python library that makes it easy to build beautiful
 custom web-apps data science. Later on, the demo was deployed with the use Heroku.
 
-All the requirements to run the demo locally as well as to deploy it are in the file Read.me in the folder "demo"
+All the requirements to run the demo locally as well as to deploy it are detialed in the file Read.me
 """
 
 import streamlit as st
 import pandas as pd
 import numpy as np
 import os
-
-# Mid-term report
 
 def load_data():
     """
@@ -27,7 +26,6 @@ def load_data():
     return df
 
 df = load_data()
-
 
 # First part - Create the interface which will collect the inputs from the user.
 # As already mentioned, streamlit allows to create all these widgets with few lines of codes.
@@ -58,6 +56,9 @@ filtered_df = filtered_df[filtered_df["Days_posted_2"] <= days_to_filter]
 # New function to create skill fullfilment per row. Idea here is that for each 
 
 def calculate_skill_index(row):
+     """
+    This function calculates the skill_fullfilment index, i.e, the percentage of programming skills required by the ad, which are fulfilled by the user
+    """
     set_row = set(row.split(','))
     set_user = set(skill_user)
     set_match = set_row.intersection(set_user)
@@ -71,8 +72,6 @@ def calculate_skill_index(row):
 
 # we filter out jobs that do not require any skills
 filtered_df = filtered_df[~filtered_df['skill_clean'].isna()]
-
-
 
 #Filtering jobs by skills and lists
 filtered_df['fullfilment_index']= filtered_df["skill_clean"].apply(calculate_skill_index)
