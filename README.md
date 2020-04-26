@@ -150,16 +150,11 @@ def remove_nones_return_list(a):
 
 ## 4. Construction of the Demo
 
-The demo is the third and last part of our project. Its main function is to collect the user's inputs regarding his/her programming language skills and then recommend a list of jobs, which better matches his/her skills.
+The demo is the fourth and last part of our project. Its main function is to collect the user's inputs regarding his/her programming language skills and then recommend a list of jobs, which better matches his/her skills.
 
-Besides the input related to programming skills, the service also collects the preferences of the user regarding the language of the job ads (german or english) as well as for how long the job ad has been posted.
+Besides the input related to programming skills, the service also collects user's preferences regarding the language of the job ad (german or english) as well as for how long the job ad has been posted.
 
-This module is divided into three main parts:
-- 1st: To create the interface which collects the inputs from the user, using streamlit library 
-- 2nd: To filter ans sort the dataset according to 3 user's inputs - programming language skills, language and date posted.
-- 3rd: To display the list with the recommended jobs
-
-The demo was created using streamlit, which is an open-source Python library that makes it much easier to build customized interfaces. Therefore, to be able to run the code and see our demo, it is important to understand how to get started with Streamlit. 
+The demo was created using streamlit, which is an open-source Python library that makes it much easier to build customized interfaces. However, to be able to run the code and see our demo, it is important to comply with some requirements.
 
 #### 4.1 How to get started with Streamlit
 
@@ -212,12 +207,12 @@ To deploy our demo we followed strictily this [link](https://gilberttanner.com/b
 
 You can find the code [here](https://github.com/Andrea-Giuliani/Python-Project/blob/master/demo/app.py) 
 
-As mentioned before, this module is divided into three main parts.
+This module was divided into three main parts.
 - 1st: To create the interface which collects the inputs from the user, using streamlit library 
 - 2nd: To filter ans sort the dataset according to 3 user's inputs - programming language skills, language and date posted.
 - 3rd: To display the list with the recommended jobs
 
-The most of the code used was based on the official streamlit tutorial, what can be found on this [link](https://docs.streamlit.io/tutorial/create_a_data_explorer_app.html#filter-results-with-a-slider) 
+The most of the code was based on the official streamlit tutorial, what can be found on this [link](https://docs.streamlit.io/tutorial/create_a_data_explorer_app.html#filter-results-with-a-slider) and it is already well documented.
 
 The only new function created by the group was the funcion calculate_skill_index, as shown here:
 
