@@ -7,11 +7,99 @@ This project was divided into 4 main parts and it will be documented accordingly
 
 #### 1.1. How to run this script
 
-You can find the code [here](include link)
+You can find the code [here](https://github.com/Andrea-Giuliani/Python-Project/blob/master/Web_Scraping/web%20scraper_indeed_jobs.py)
 
 #### 1.2. What the script does?
 
-Toma write here....
+This module scrapes data science and data analyst job ads in the city of Berlin from de.indeed.com. The full script parses the information into different fields, including company name, company rating, job description, data of posting, and link to the full description. Finally, after information is scraped and parsed, two csv files are generated for the two respective job queries. Below are shown the main functions: 
+
+```python
+def extract_company(div): 
+    """This function extracts the company name from the results page.
+    
+    """
+    company = div.find_all(name="span", attrs={"class":"company"})
+    if len(company) > 0:
+        for b in company:
+            return (b.text.strip())
+    else:
+        sec_try = div.find_all(name="span", attrs={"class":"result-link-source"})
+        for span in sec_try:
+            return (span.text.strip())
+    return 'NOT_FOUND'
+    
+def extract_location(div):
+    """This function extracts the job location from the results page.
+    
+    """
+    for span in div.findAll('span', attrs={'class': 'location'}):
+        return (span.text)
+    return 'NOT_FOUND'
+
+def extract_job_title(div):
+    """This function extracts the job title from the results page.
+    
+    """
+    for a in div.find_all(name='a', attrs={'data-tn-element':'jobTitle'}):
+        return (a['title'])
+    return('NOT_FOUND')
+
+def extract_link(div):
+    """This function extracts the link to the full job description from the results page.
+    
+    """
+    for a in div.find_all(name='a', attrs={'data-tn-element':'jobTitle'}):
+        return (a['href'])
+    return('NOT_FOUND')
+    
+def extract_rating(div):
+    """This function extracts the comapny rating (if there is one) from the results page.
+    
+    """
+    for span in div.findAll('span', attrs={'class': 'ratingsContent'}):
+        return (span.text.strip())
+    return 'NOT_FOUND'
+
+def extract_date(div):
+    """This function extracts the date when the job was posted from the results page.
+    
+    """
+    try:
+        spans = div.findAll('span', attrs={'class': 'date'})
+        for span in spans:
+            return (span.text.strip())
+    except:
+        return 'NOT_FOUND'
+    return 'NOT_FOUND'
+
+def extract_fulltext(url):
+    """This function opens the link to the full job description and extracts the job description text.
+    
+    """
+    try:
+        page = requests.get('https://de.indeed.com' + url)
+        soup = BeautifulSoup(page.text, "lxml", from_encoding="utf-8")
+        spans = soup.findAll('div', attrs={'class': 'jobsearch-jobDescriptionText'})
+        for span in spans:
+            return (span.text.strip())
+    except:
+        return 'NOT_FOUND'
+    return 'NOT_FOUND'
+
+def extract_location2(url):
+    """This function opens the link to the full job description and extracts the job location (since the job location is not always mentioned in the results page).
+    
+    """
+    try:
+        page = requests.get('https://de.indeed.com' + url)
+        soup = BeautifulSoup(page.text, "lxml", from_encoding="utf-8")
+        spans = soup.findAll('span', attrs={'class': 'jobsearch-JobMetadataHeader-iconLabel'})
+        for span in spans:
+            return (span.text.strip())
+    except:
+        return 'NOT_FOUND'
+    return 'NOT_FOUND'
+```
 
 ## 2. Data_Cleaning
 
