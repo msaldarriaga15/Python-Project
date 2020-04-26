@@ -150,9 +150,7 @@ def remove_nones_return_list(a):
 
 ## 4. Construction of the Demo
 
-The demo is the fourth and last part of our project. Its main function is to collect the user's inputs regarding his/her programming language skills and then recommend a list of jobs, which better matches his/her skills.
-
-Besides the input related to programming skills, the service also collects user's preferences regarding the language of the job ad (german or english) as well as for how long the job ad has been posted.
+The demo is the fourth and last part of our project. Its main function is to collect the user's inputs regarding his/her programming language skills and then recommend a list of jobs, which better matches these skills. Besides the input related to programming skills, the service also collects user's preferences regarding the language of the job ad (german or english) as well as for how long the job ad has been posted.
 
 The demo was created using streamlit, which is an open-source Python library that makes it much easier to build customized interfaces. However, to be able to run the code and see our demo, it is important to comply with some requirements.
 
@@ -174,16 +172,14 @@ pip install pandas
 
 #### Instructions for starting the demo 
 
-3. Create a new folder (job_ads). Download the file app.py in this [link](https://github.com/Andrea-Giuliani/Python-Project/blob/master/demo/app.py) containing the Streamlit code.
-
+1. Create a new folder (job_ads). Download the file app.py in this [link](https://github.com/Andrea-Giuliani/Python-Project/blob/master/demo/app.py) containing the Streamlit code.
 After this step you should have the file app.py inside the folder job_ads.
 
-4. Navigate to the job_ads folder using the command line. My example below:
+2. Navigate to the job_ads folder using the command line. My example below:
 
 cd C:\Users\aline\OneDrive\Desktop\Hertie\Hertie School 4th Sem\Phyton\Final Project\job-ads
 
-5. Run Streamlit on the command line: streamlit run app.py 
-
+3. Run Streamlit on the command line: streamlit run app.py 
 It should produce an output as shown below:
 
 " You can now view your Streamlit app in your browser.
@@ -191,13 +187,12 @@ It should produce an output as shown below:
   Local URL: http://localhost:8501
   Network URL: http://192.168.0.147:8501"
   
-6. Open the browser on the displayed URL in the command line and see the dashboard. 
+4. Open the browser on the displayed URL in the command line and see the dashboard. 
 
 #### Understanding how the code works and seeing the changes live in the demo
 
-- At this point, you can only see a working dashboard. 
-- If you want also to check or adjust the code and see the changes live,  you can easily modify the code in your IDE, save it, and refresh the browser. 
-- For that I used Visual Studio Code as IDE, since apparently Streamlit cannot be executed inside Colab .
+At this point, you can only see a working dashboard. If you want also to check or adjust the code and see the changes live,  you can easily modify the code in your IDE, save it, and refresh the browser. 
+For that I used Visual Studio Code as IDE, since apparently Streamlit cannot be executed inside Colab .
 
 #### 4.2 How to deploy Streamlit
 
