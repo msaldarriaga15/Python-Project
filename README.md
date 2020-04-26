@@ -31,7 +31,7 @@ You can find the code [here](Data_Mining/Andrea_Code_Data_Mining.py)
 
 #### 3.2. What the script does?
 
-.......include very generally what the script does.. 
+This module generates a new column for the indicator variable that reports whether the job posting is in English or German. Furthermore, the script also creates indicator variables for analyzing which programming lnaguages are required in the different job postings. 
 
 ```python
 def detect_lang(x):
