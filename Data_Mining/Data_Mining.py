@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Mar 31 21:45:33 2020
-
-@author: Andrea
-"""
 
 import spacy
 from spacy_langdetect import LanguageDetector
