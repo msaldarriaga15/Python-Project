@@ -5,9 +5,21 @@ This project was divided into 4 main parts and it will be documented accordingly
 
 ## 1. Web Scraping
 
-Toma write here... and copy his functions..
+#### 1.1. How to run this script
+
+You can find the code [here](include link)
+
+#### 1.2. What the script does?
+
+Toma write here....
 
 ## 2. Data_Cleaning
+
+#### 2.1. How to run this script
+
+You can find the code [here](include link)
+
+#### 2.2. What the script does?
 
 Mari write here... and copy his functions..
 
@@ -17,9 +29,9 @@ Mari write here... and copy his functions..
 
 You can find the code [here](Data_Mining/Andrea_Code_Data_Mining.py)
 
-#### 3.2. What the script does
+#### 3.2. What the script does?
 
-Andrea write here what he thinks it is important to someone to understand the code
+.......include very generally what the script does.. 
 
 ```python
 def detect_lang(x):
@@ -48,11 +60,9 @@ def remove_nones_return_list(a):
     return ','.join(list(c))    
 ```
 
-## 4.Data Visualization
+## 4. Demo
 
-## 5. Demo
-
-#### 5.1 How to get started with Streamlit
+#### 4.1 How to get started with Streamlit
 
 #### Requisites before using Streamlit 
 
@@ -92,10 +102,10 @@ It should produce an output as shown in the image below:
 - If you want also to check or adjust the code and see the changes live,  you can easily modify the code in your IDE, save it, and refresh the browser, as I did today in our video call. 
 - For that I used Visual Studio Code as IDE, since apparently Streamlit cannot be executed inside Colab .
 
-#### 5.2 How to deploy Streamlit
+#### 4.2 How to deploy Streamlit
 
 To deploy our demo we followed strictily this [link](https://gilberttanner.com/blog/deploying-your-streamlit-dashboard-with-heroku), which explain how to deploy one Streamlit dashboard with Heroku.
 
-#### 5.3 Code documentation
+#### 4.3 Code documentation
 
 ALINE WRITE HERE....
