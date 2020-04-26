@@ -1,12 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Apr 24 21:42:07 2020
-
-@author: K501UX
-"""
-
-# unittests for the web scraping
-# Testing whether the link provided returns the desired list of results
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -20,6 +12,10 @@ from nltk.corpus import stopwords
 from textblob import TextBlob, Word
 nltk.download('stopwords')
 stop = stopwords.words('english')
+
+
+# unittests for the web scraping
+# Testing whether the link provided returns the desired list of results
 
 
 class TestDataAnalyst(unittest.TestCase):    
@@ -55,12 +51,12 @@ class TestDataScientist(unittest.TestCase):
 if __name__ == '__main__':    
      unittest.main()
      
-#Import data
-# Read the file into a DataFrame
+# Tests for the data cleaning
+# Read the file into a dataFrame
 df1 = pd.read_csv('https://raw.githubusercontent.com/Andrea-Giuliani/Python-Project/master/data/jobs_data+analyst.csv')
 df2 = pd.read_csv('https://raw.githubusercontent.com/Andrea-Giuliani/Python-Project/master/data/jobs_data+scientist.csv')
 
-# Merge two Datasets
+# Merge two datasets
 df_merged = df1.append(df2, ignore_index=True)
 
 # Test for missing values
@@ -86,8 +82,7 @@ class TestNaN(unittest.TestCase):
         rating_NaN = mark_nan_values(df)
         pd.testing.assert_series_equal(pd.Series([1, 2, 3, np.NaN, 4, np.NaN, 6]), rating_NaN['Rating'], check_names=False)
         
-# Test to drop columns 
-        
+# Test to drop columns    
 def drop_col(df_merged):
     '''
     We drop the column 'Location' since it has many missing values: drop 'Location'
@@ -109,7 +104,6 @@ class TestDrop(unittest.TestCase):
         pd.testing.assert_frame_equal(df_drop, df_drop_expected)
 
 # Test for duplicate rows 
-
 def check_duplicates(data_clean):
     '''
     This function is to find duplicate rows. 
@@ -134,7 +128,6 @@ class TestRemoveDuplicates(unittest.TestCase):
         
 
 # Test for test processing
-
 def basic_pre_processing(eng_data_clean_text):
     '''
     We clean the text data in order to obtain better results. For this we will do some
@@ -174,7 +167,8 @@ class TestProcessing (unittest.TestCase):
 if __name__ == '__main__':
     unittest.main(exit=False)
 
-#Define the spacy_langdetect function
+# Test for data mining 
+# Define the spacy_langdetect function
 nlp = spacy.load("en_core_web_sm")
 
 def detect_lang(input_string_to_be_detected):
@@ -197,7 +191,7 @@ class TestStringMethods(unittest.TestCase):
         language_detected = detect_lang(english_sentence)
         self.assertEqual(language_detected, 'en')
 
-
+# Test for the demo
 def calculate_skill_index(row,skill_user):
     """
     This function calculates the skill_fullfilment index, i.e, the percentage of 
