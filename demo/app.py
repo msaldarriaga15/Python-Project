@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This code section is exclusive for creating our demo, as the third and last part of our project.
 
