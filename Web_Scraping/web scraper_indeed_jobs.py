@@ -1,15 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar  4 17:14:18 2020
-
-@author: tomapavlov
-
-The following code is our web scraper. 
-Note: If you want to run/test the code, adjust the number of results you get (max_results_per_city) in order to miimize the running time"
-
-
-"""
 # import packages
 import requests
 import pandas as pd
