@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # import packages
 import requests
 import pandas as pd
