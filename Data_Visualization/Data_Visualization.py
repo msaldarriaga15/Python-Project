@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 19 17:29:45 2020
 
-@author: Andrea
-"""
 import pandas as pd
 
 #Import Dataset
