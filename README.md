@@ -101,7 +101,7 @@ def extract_location2(url):
     return 'NOT_FOUND'
 ```
 
-## 2. Data_Cleaning
+## 2. Data Cleaning
 
 #### 2.1. How to run this script
 
@@ -148,7 +148,18 @@ def remove_nones_return_list(a):
     return ','.join(list(c))    
 ```
 
-## 4. Demo
+## 4. Construction of the Demo
+
+The demo is the third and last part of our project. Its main function is to collect the user's inputs regarding his/her programming language skills and then recommend a list of jobs, which better matches his/her skills.
+
+Besides the input related to programming skills, the service also collects the preferences of the user regarding the language of the job ads (german or english) as well as for how long the job ad has been posted.
+
+This module is divided into three main parts:
+- 1st: To create the interface which collects the inputs from the user, using streamlit library 
+- 2nd: To filter ans sort the dataset according to 3 user's inputs - programming language skills, language and date posted.
+- 3rd: To display the list with the recommended jobs
+
+The demo was created using streamlit, which is an open-source Python library that makes it much easier to build customized interfaces. Therefore, to be able to run the code and see our demo, it is important to understand how to get started with Streamlit. 
 
 #### 4.1 How to get started with Streamlit
 
@@ -168,32 +179,63 @@ pip install pandas
 
 #### Instructions for starting the demo 
 
-3. Create a new folder (job_ads). Download the CSV file mock_dataset.csv and the file app.py containing the Streamlit code using the links below.
-MODIFIYYY!
+3. Create a new folder (job_ads). Download the file app.py in this [link](https://github.com/Andrea-Giuliani/Python-Project/blob/master/demo/app.py) containing the Streamlit code.
 
-Just to make sure, I am also sending the files to you attached in the e-mail message.
-
-After this step you should have the files mock_dataset.csv and app.py inside the folder job_ads.
+After this step you should have the file app.py inside the folder job_ads.
 
 4. Navigate to the job_ads folder using the command line. My example below:
 
 cd C:\Users\aline\OneDrive\Desktop\Hertie\Hertie School 4th Sem\Phyton\Final Project\job-ads
 
 5. Run Streamlit on the command line: streamlit run app.py 
-It should produce an output as shown in the image below:
- 
+
+It should produce an output as shown below:
+
+" You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.147:8501"
+  
 6. Open the browser on the displayed URL in the command line and see the dashboard. 
 
 #### Understanding how the code works and seeing the changes live in the demo
 
 - At this point, you can only see a working dashboard. 
-- If you want also to check or adjust the code and see the changes live,  you can easily modify the code in your IDE, save it, and refresh the browser, as I did today in our video call. 
+- If you want also to check or adjust the code and see the changes live,  you can easily modify the code in your IDE, save it, and refresh the browser. 
 - For that I used Visual Studio Code as IDE, since apparently Streamlit cannot be executed inside Colab .
 
 #### 4.2 How to deploy Streamlit
 
 To deploy our demo we followed strictily this [link](https://gilberttanner.com/blog/deploying-your-streamlit-dashboard-with-heroku), which explain how to deploy one Streamlit dashboard with Heroku.
 
-#### 4.3 Code documentation
+#### 4.3 What the script does?
 
-ALINE WRITE HERE....
+You can find the code [here](https://github.com/Andrea-Giuliani/Python-Project/blob/master/demo/app.py) 
+
+As mentioned before, this module is divided into three main parts.
+- 1st: To create the interface which collects the inputs from the user, using streamlit library 
+- 2nd: To filter ans sort the dataset according to 3 user's inputs - programming language skills, language and date posted.
+- 3rd: To display the list with the recommended jobs
+
+The most of the code used was based on the official streamlit tutorial, what can be found on this [link](https://docs.streamlit.io/tutorial/create_a_data_explorer_app.html#filter-results-with-a-slider) 
+
+The only new function created by the group was the funcion calculate_skill_index, as shown here:
+
+```python
+def calculate_skill_index(job_ads_row):
+    """
+    This function calculates the skill fulfillment index, i.e, the percentage of programming skills required by the job ad, which 
+    are fulfilled by the user. This function will be applied later for every row in the column skill_clean. Therefore, the argument         needs to be job_ads_row.
+    """
+    set_skill_row = set(job_ads_row.split(',')) 
+    set_user = set(skill_user)
+    # Define the match between the two sets: the user and the job_ad
+    set_match = set_skill_row.intersection(set_user)
+    # Count the lenght of the set_match
+    number_skills_match = len(set_match)
+    # Count the lenght of the set_ad
+    number_skills_ad = len(set_skill_row)
+    # Calculate the skills fullfilment percentage for each row
+    percentage_index = number_skills_match/number_skills_ad
+    return percentage_index
+```
